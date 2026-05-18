@@ -1,0 +1,162 @@
+/* ESGA Dashboard Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    font-size: 2rem;
+    color: #16213e;
+}
+.subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.metric-card { text-align: center; }
+.metric {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f3460;
+    display: block;
+    margin-top: 8px;
+}
+
+.charts-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.chart-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gauge-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: -60px;
+    text-align: center;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+tr:hover { background: #f5f5f5; }
+
+/* Severity badges */
+.severity-critical {
+    color: #fff; background: #e74c3c; padding: 2px 8px;
+    border-radius: 4px; font-size: 0.8rem; font-weight: 600;
+}
+.severity-high {
+    color: #fff; background: #e67e22; padding: 2px 8px;
+    border-radius: 4px; font-size: 0.8rem; font-weight: 600;
+}
+.severity-medium {
+    color: #fff; background: #f39c12; padding: 2px 8px;
+    border-radius: 4px; font-size: 0.8rem; font-weight: 600;
+}
+.severity-low {
+    color: #fff; background: #27ae60; padding: 2px 8px;
+    border-radius: 4px; font-size: 0.8rem; font-weight: 600;
+}
+
+/* Grade colors */
+.grade-A { color: #27ae60; font-weight: 700; }
+.grade-B { color: #2ecc71; font-weight: 700; }
+.grade-C { color: #f39c12; font-weight: 700; }
+.grade-D { color: #e67e22; font-weight: 700; }
+.grade-F { color: #e74c3c; font-weight: 700; }
+
+/* Form */
+#upload-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#scan-btn {
+    background: #0f3460;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+#scan-btn:hover { background: #16213e; }
+#scan-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-detail {
+    background: #3498db; color: #fff; border: none; padding: 4px 12px;
+    border-radius: 4px; cursor: pointer; font-size: 0.85rem;
+}
+.btn-detail:hover { background: #2980b9; }
+
+#close-findings {
+    float: right; background: #e74c3c; color: #fff; border: none;
+    padding: 6px 14px; border-radius: 4px; cursor: pointer;
+}
+#close-findings:hover { background: #c0392b; }
+
+#upload-status {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.85rem;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cards-row, .charts-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESGA - Security Guardrail Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>ESGA Dashboard</h1>
+        <p class="subtitle">Enterprise Security Guardrail Auditor</p>
+    </header>
+
+    <main>
+        <!-- Upload Section -->
+        <section id="upload-section" class="card">
+            <h2>Scan Terraform File</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" id="tf-file" name="file" accept=".tf" required>
+                <button type="submit" id="scan-btn">Run Scan</button>
+            </form>
+            <div id="upload-status"></div>
+        </section>
+
+        <!-- Summary Cards Row -->
+        <section id="summary-cards" class="cards-row">
+            <div class="card metric-card">
+                <h3>Total Scans</h3>
+                <span id="total-scans" class="metric">0</span>
+            </div>
+            <div class="card metric-card">
+                <h3>Total Findings</h3>
+                <span id="total-findings" class="metric">0</span>
+            </div>
+            <div class="card metric-card">
+                <h3>Average Risk Score</h3>
+                <span id="avg-score" class="metric">0</span>
+            </div>
+        </section>
+
+        <!-- Charts Row -->
+        <section class="charts-row">
+            <div class="card chart-card">
+                <h3>Overall Risk Gauge</h3>
+                <canvas id="risk-gauge" width="300" height="300"></canvas>
+                <div id="gauge-label" class="gauge-label">--</div>
+            </div>
+            <div class="card chart-card">
+                <h3>Findings by Severity</h3>
+                <canvas id="severity-chart" width="300" height="300"></canvas>
+            </div>
+            <div class="card chart-card">
+                <h3>Grade Distribution</h3>
+                <canvas id="grade-chart" width="300" height="300"></canvas>
+            </div>
+        </section>
+
+        <!-- Recent Scans Table -->
+        <section class="card">
+            <h2>Recent Scans</h2>
+            <table id="scans-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Filename</th>
+                        <th>Resources</th>
+                        <th>Findings</th>
+                        <th>Score</th>
+                        <th>Grade</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="scans-tbody"></tbody>
+            </table>
+        </section>
+
+        <!-- Findings Drill-Down (hidden by default) -->
+        <section id="findings-section" class="card" style="display:none;">
+            <h2>Scan Findings: <span id="findings-title"></span></h2>
+            <button id="close-findings">Close</button>
+            <table id="findings-table">
+                <thead>
+                    <tr>
+                        <th>Severity</th>
+                        <th>Resource</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="findings-tbody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>ESGA v0.1.0 &mdash; Enterprise Security Guardrail Auditor</p>
+    </footer>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
